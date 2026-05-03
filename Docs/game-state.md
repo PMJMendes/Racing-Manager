@@ -1,6 +1,6 @@
 <!--
 This document defines the complete game state machine architecture
-and its mapping to Unity scenes and scene transitions.
+and its mapping to Godot scenes and scene transitions.
 -->
 
 # Game State Machine Architecture
@@ -230,7 +230,7 @@ RaceDayState
 
 ---
 
-## Unity Scene Architecture
+## Godot Scene Architecture
 
 ### Persistent Scenes (Load Once)
 
@@ -238,9 +238,9 @@ These scenes load at game startup and persist throughout the entire gameplay ses
 
 | Scene | Responsibility |
 |-------|-----------------|
-| `GameManager` | State machine orchestration, context persistence, main event dispatcher |
-| `AudioManager` | Music and SFX pooling, dynamic audio state management |
-| `PersistenceManager` | Save/load system, serialization of GameContext |
+| `GameManager.tscn` | State machine orchestration, context persistence, main event dispatcher |
+| `AudioManager.tscn` | Music and SFX pooling, dynamic audio state management |
+| `PersistenceManager.tscn` | Save/load system, serialization of GameContext |
 
 ### Transient Scenes (Load/Unload per State)
 
@@ -248,10 +248,10 @@ These scenes load additively based on the current game state and unload when tra
 
 | State | Associated Scenes |
 |-------|-------------------|
-| `MainMenu` | `MainMenu` |
-| `Season` | `SeasonOverview` |
-| `Week` | `WeekHub`, `CrewUI`, `MaintenanceUI`, `ShopUI` (modular panels load/unload as needed) |
-| `RaceDay` | `RaceGarage`, `RaceSimulation` (both always loaded for seamless turn-based flow) |
+| `MainMenu` | `MainMenu.tscn` |
+| `Season` | `SeasonOverview.tscn` |
+| `Week` | `WeekHub.tscn`, `CrewUI.tscn`, `MaintenanceUI.tscn`, `ShopUI.tscn` (modular panels load/unload as needed) |
+| `RaceDay` | `RaceGarage.tscn`, `RaceSimulation.tscn` (both always loaded for seamless turn-based flow) |
 
 ---
 
@@ -261,10 +261,10 @@ These scenes load additively based on the current game state and unload when tra
 
 ```typescript
 const stateToScenes: Record<GameState['type'], string[]> = {
-  MainMenu: ['Persistent', 'MainMenu'],
-  Season: ['Persistent', 'SeasonOverview'],
-  Week: ['Persistent', 'WeekHub'],
-  RaceDay: ['Persistent', 'RaceGarage', 'RaceSimulation']
+  MainMenu: ['res://MainMenu'],
+  Season: ['res://SeasonOverview'],
+  Week: ['res://WeekHub'],
+  RaceDay: ['res://RaceGarage', 'res://RaceSimulation']
 };
 
 // UI panels (CrewUI, MaintenanceUI, ShopUI) load/unload on-demand within WeekState
@@ -275,36 +275,36 @@ const activeWeekPanels: string[] = [];
 
 When the state machine transitions between states:
 
-```typescript
-onStateChange(from: GameState, to: GameState) {
-  const fromScenes = stateToScenes[from.type] || [];
-  const toScenes = stateToScenes[to.type] || [];
+```gdscript
+func _on_state_changed(from: GameState, to: GameState):
+  var from_scenes = state_to_scenes.get(from.type, [])
+  var to_scenes = state_to_scenes.get(to.type, [])
   
-  // Unload scenes no longer needed
-  const scenesToUnload = difference(fromScenes, toScenes);
-  scenesToUnload.forEach(s => SceneManager.UnloadSceneAsync(s));
+  # Unload scenes no longer needed
+  var scenes_to_unload = array_difference(from_scenes, to_scenes)
+  for scene in scenes_to_unload:
+    scene.queue_free()  # Correct method to unload nodes
   
-  // Load new scenes required
-  const scenesToLoad = difference(toScenes, fromScenes);
-  scenesToLoad.forEach(s => SceneManager.LoadSceneAsync(s, LoadSceneMode.Additive));
-}
+  # Load new scenes required
+  var scenes_to_load = array_difference(to_scenes, from_scenes)
+  for scene_path in scenes_to_load:
+    get_tree().change_scene_to_file(scene_path)
 ```
 
 ### Context Synchronization
 
 The `GameContext` updates are broadcast to all active scenes:
 
-```typescript
-onContextUpdate(context: GameContext) {
-  // Update UI displays
-  FindObjectOfType<UIManager>().UpdateDisplay(context);
-  FindObjectOfType<TeamRoster>().UpdateTeamView(context.team);
-  FindObjectOfType<ResourceDisplay>().UpdateResources(context.resources);
+```gdscript
+func _on_context_updated(context: GameContext):
+  # Update UI displays
+  get_node("UIManager").update_display(context)
+  get_node("TeamRoster").update_team_view(context.team)
+  get_node("ResourceDisplay").update_resources(context.resources)
   
-  // Update game systems
-  FindObjectOfType<VehicleManager>().UpdateVehicles(context.vehicles);
-  FindObjectOfType<SponsorManager>().UpdateSponsors(context.sponsors);
-}
+  # Update game systems
+  get_node("VehicleManager").update_vehicles(context.vehicles)
+  get_node("SponsorManager").update_sponsors(context.sponsors)
 ```
 
 ---
@@ -369,13 +369,10 @@ interface RunTelemetry {
 
 ### State Change Events
 
-```typescript
-public class GameStateEvents
-{
-  public static event Action<GameState, GameState> OnStateChanged;
-  public static event Action<GameContext> OnContextUpdated;
-  public static event Action<string> OnTransitionRejected;
-}
+```gdscript
+signal state_changed(from: GameState, to: GameState)
+signal context_updated(context: GameContext)
+signal transition_rejected(reason: String)
 ```
 
 ### Pause & Resume
@@ -394,21 +391,18 @@ The game can be paused and resumed from any state. Pausing:
 
 Only the `GameContext` needs to be serialized:
 
-```typescript
-[System.Serializable]
-public class GameSaveData
-{
-  public int Season;
-  public System.DateTime CurrentDate;
-  public ResourcePool Resources;
-  public TeamData Team;
-  public VehicleData[] Vehicles;
-  public SponsorData[] Sponsors;
-  public GameEvent[] History;
+```gdscript
+class GameSaveData:
+  var season: int
+  var current_date: DateTime
+  var resources: ResourcePool
+  var team: TeamData
+  var vehicles: Array[VehicleData]
+  var sponsors: Array[SponsorData]
+  var history: Array[GameEvent]
   
-  // Which state were we in?
-  public string CurrentStateType;
-}
+  # Which state were we in?
+  var current_state_type: String
 ```
 
 ### Load Path
@@ -512,3 +506,8 @@ If a scene fails to load, the state machine logs the error and attempts reload. 
 - **Replay System:** Record state transitions and context snapshots
 - **Time Travel:** Debug tool to rewind to previous states
 - **Modding:** Allow custom states and transitions via plugins
+
+
+
+
+
