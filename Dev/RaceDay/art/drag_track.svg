@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1750 360" width="1750" height="360">
+  <defs>
+    <linearGradient id="asphalt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3a3a"/>
+      <stop offset="50%" stop-color="#444444"/>
+      <stop offset="100%" stop-color="#3a3a3a"/>
+    </linearGradient>
+    <linearGradient id="concrete" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#888888"/>
+      <stop offset="50%" stop-color="#999999"/>
+      <stop offset="100%" stop-color="#888888"/>
+    </linearGradient>
+    <pattern id="checker" patternUnits="userSpaceOnUse" width="12" height="12">
+      <rect x="0" y="0" width="6" height="6" fill="white"/>
+      <rect x="6" y="0" width="6" height="6" fill="black"/>
+      <rect x="0" y="6" width="6" height="6" fill="black"/>
+      <rect x="6" y="6" width="6" height="6" fill="white"/>
+    </pattern>
+    <pattern id="groove" patternUnits="userSpaceOnUse" width="4" height="4">
+      <rect x="0" y="0" width="4" height="1" fill="rgba(0,0,0,0.08)"/>
+      <rect x="0" y="2" width="4" height="1" fill="rgba(0,0,0,0.05)"/>
+    </pattern>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="1750" height="360" fill="#3a7d3a"/>
+  <rect x="0" y="5" width="1750" height="350" fill="url(#asphalt)" filter="url(#shadow)"/>
+  <rect x="0" y="5" width="1750" height="350" fill="url(#groove)" opacity="0.6"/>
+  <rect x="0" y="5" width="1750" height="5" fill="white" opacity="0.6"/>
+  <rect x="0" y="150" width="1750" height="5" fill="#cccccc" opacity="0.7"/>
+  <rect x="0" y="155" width="1750" height="50" fill="#505050" opacity="0.5"/>
+  <rect x="0" y="155" width="1750" height="4" fill="#ffcc00" opacity="0.8"/>
+  <rect x="0" y="201" width="1750" height="4" fill="#ffcc00" opacity="0.8"/>
+  <line x1="0" y1="180" x2="1750" y2="180" stroke="#ffcc00" stroke-width="2" stroke-dasharray="20,15" opacity="0.6"/>
+  <rect x="0" y="205" width="1750" height="5" fill="#cccccc" opacity="0.7"/>
+  <rect x="0" y="350" width="1750" height="5" fill="white" opacity="0.6"/>
+  <rect x="0" y="5" width="215" height="350" fill="url(#concrete)" opacity="0.35"/>
+  <line x1="195" y1="5" x2="195" y2="150" stroke="#cccccc" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+  <line x1="195" y1="205" x2="195" y2="350" stroke="#cccccc" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+  <line x1="210" y1="5" x2="210" y2="150" stroke="#cccccc" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+  <line x1="210" y1="205" x2="210" y2="350" stroke="#cccccc" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+  <rect x="215" y="5" width="5" height="350" fill="white"/>
+  <g opacity="0.12">
+    <line x1="234" y1="150" x2="234" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="272" y1="150" x2="272" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="311" y1="150" x2="311" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="349" y1="150" x2="349" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="388" y1="150" x2="388" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="426" y1="150" x2="426" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="465" y1="150" x2="465" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="503" y1="150" x2="503" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="542" y1="150" x2="542" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="580" y1="150" x2="580" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="619" y1="150" x2="619" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="657" y1="150" x2="657" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="696" y1="150" x2="696" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="734" y1="150" x2="734" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="773" y1="150" x2="773" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="811" y1="150" x2="811" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="850" y1="150" x2="850" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="888" y1="150" x2="888" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="927" y1="150" x2="927" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="965" y1="150" x2="965" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="1004" y1="150" x2="1004" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="1042" y1="150" x2="1042" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="1081" y1="150" x2="1081" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="1119" y1="150" x2="1119" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="1158" y1="150" x2="1158" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="1196" y1="150" x2="1196" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="1235" y1="150" x2="1235" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="1273" y1="150" x2="1273" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="1312" y1="150" x2="1312" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="1350" y1="150" x2="1350" y2="205" stroke="white" stroke-width="1"/>
+    <line x1="1389" y1="150" x2="1389" y2="205" stroke="white" stroke-width="1"/>
+  </g>
+  <rect x="1420" y="5" width="24" height="350" fill="url(#checker)" filter="url(#glow)"/>
+  <rect x="1420" y="5" width="2" height="350" fill="black" opacity="0.6"/>
+  <rect x="1442" y="5" width="2" height="350" fill="black" opacity="0.6"/>
+  <line x1="1480" y1="5" x2="1480" y2="355" stroke="white" stroke-width="1" opacity="0.06"/>
+  <line x1="1540" y1="5" x2="1540" y2="355" stroke="white" stroke-width="1" opacity="0.06"/>
+  <line x1="1600" y1="5" x2="1600" y2="355" stroke="white" stroke-width="1" opacity="0.06"/>
+  <line x1="1660" y1="5" x2="1660" y2="355" stroke="white" stroke-width="1" opacity="0.06"/>
+  <line x1="1720" y1="5" x2="1720" y2="355" stroke="white" stroke-width="1" opacity="0.06"/>
+  <line x1="0" y1="80" x2="1750" y2="80" stroke="white" stroke-width="1.5" stroke-dasharray="10,10" opacity="0.4"/>
+  <line x1="0" y1="280" x2="1750" y2="280" stroke="white" stroke-width="1.5" stroke-dasharray="10,10" opacity="0.4"/>
+</svg>

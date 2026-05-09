@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://daxlct5hr0dxt"]
+
+[ext_resource type="Script" uid="uid://2xsdp1ixowr" path="res://RaceDay/Car.cs" id="1_o4vlb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fc2q"]
+size = Vector2(60, 30)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2fc2q"]
+
+[node name="Car" type="RigidBody2D" unique_id=595663621]
+gravity_scale = 0.0
+script = ExtResource("1_o4vlb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1268020363]
+shape = SubResource("RectangleShape2D_2fc2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1577368540]
+scale = Vector2(60, 30)
+texture = SubResource("CanvasTexture_2fc2q")

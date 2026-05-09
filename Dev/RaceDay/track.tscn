@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c0dpe8r05hkdv"]
+
+[ext_resource type="Texture2D" uid="uid://dqhjua88kv6mj" path="res://RaceDay/art/drag_track.png" id="1_pidkh"]
+[ext_resource type="Script" uid="uid://db58o1bnf7oyi" path="res://RaceDay/Track.cs" id="1_qsl0q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pidkh"]
+size = Vector2(330, 360)
+
+[node name="Track" type="Node2D" unique_id=729798231]
+script = ExtResource("1_qsl0q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1237061977]
+texture = ExtResource("1_pidkh")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=510812460]
+position = Vector2(1585, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1133174265]
+shape = SubResource("RectangleShape2D_pidkh")
