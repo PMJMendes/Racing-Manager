@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqhjua88kv6mj"
-path="res://.godot/imported/drag_track.png-834e1c64a6ccca79a98cdb6aa7d28064.ctex"
+uid="uid://c4bx18i0owewu"
+path="res://.godot/imported/drag_track.svg-fabd8c9e16a9e496398ccb30bdf86d5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://RaceDay/art/drag_track.png"
-dest_files=["res://.godot/imported/drag_track.png-834e1c64a6ccca79a98cdb6aa7d28064.ctex"]
+source_file="res://RaceScene/art/drag_track.svg"
+dest_files=["res://.godot/imported/drag_track.svg-fabd8c9e16a9e496398ccb30bdf86d5d.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
