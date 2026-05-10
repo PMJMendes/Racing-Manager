@@ -6,7 +6,9 @@
 [node name="RaceScene" type="Node" unique_id=348064162]
 script = ExtResource("1_3ieap")
 
-[node name="Track" parent="." unique_id=729798231 instance=ExtResource("2_67aso")]
-position = Vector2(80, 80)
+[node name="World" type="Node2D" parent="." unique_id=2040655697]
+position = Vector2(60, 60)
 
-[connection signal="CarCrossedFinishLine" from="Track" to="." method="OnCarCrossedFinishLine"]
+[node name="Track" parent="World" unique_id=729798231 instance=ExtResource("2_67aso")]
+
+[connection signal="CarCrossedFinishLine" from="World/Track" to="." method="OnCarCrossedFinishLine"]

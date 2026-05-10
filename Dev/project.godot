@@ -20,6 +20,9 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
+window/ios/hide_home_indicator=false
+window/ios/hide_status_bar=false
 
 [dotnet]
 
@@ -27,7 +30,16 @@ project/assembly_name="RacingManager"
 
 [physics]
 
+common/max_physics_steps_per_frame=16
+common/physics_jitter_fix=0.0
 3d/physics_engine="Jolt Physics"
+2d/default_gravity=0.0
+2d/default_gravity_vector=Vector2(0, 0)
+2d/default_linear_damp=0.0
+2d/default_angular_damp=0.0
+2d/sleep_threshold_linear=0.0
+2d/sleep_threshold_angular=0.0
+2d/time_before_sleep=0.0
 
 [rendering]
 

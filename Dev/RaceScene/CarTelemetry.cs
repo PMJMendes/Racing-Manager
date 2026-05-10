@@ -1,5 +1,5 @@
 public readonly record struct CarTelemetry(
-    double Time,
-    float Speed,
-    float Position
+	double Time,
+	float Speed,
+	float Position
 );

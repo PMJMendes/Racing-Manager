@@ -6,7 +6,7 @@ public partial class Car : RigidBody2D
 	public event EventHandler<CarTelemetry> TelemetryUpdated;
 
 	[Export] public Color Color = Colors.White;
-	[Export] public float EngineForce = 55820f;
+	[Export] public float EngineForce = 18700f;
 
 	private bool _racing = false;
 	private bool _braking = false;

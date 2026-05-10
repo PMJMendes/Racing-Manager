@@ -1,33 +1,47 @@
 [gd_scene format=3 uid="uid://c0dpe8r05hkdv"]
 
-[ext_resource type="Texture2D" uid="uid://dqhjua88kv6mj" path="res://RaceScene/art/drag_track.png" id="1_pidkh"]
 [ext_resource type="Script" uid="uid://db58o1bnf7oyi" path="res://RaceScene/Track.cs" id="1_qsl0q"]
+[ext_resource type="Texture2D" uid="uid://b6rvnp1uxb1k4" path="res://RaceScene/art/drag_track.png" id="2_xl84n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pidkh"]
-size = Vector2(330, 360)
+size = Vector2(127.6, 19.6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xl84n"]
-size = Vector2(1200, 360)
+size = Vector2(0.01, 19.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fah8g"]
+size = Vector2(0.01, 19.6)
 
 [node name="Track" type="Node2D" unique_id=729798231]
 script = ExtResource("1_qsl0q")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1237061977]
-texture = ExtResource("1_pidkh")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1216415955]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_xl84n")
 centered = false
 
 [node name="FinishLine" type="Area2D" parent="." unique_id=510812460]
-position = Vector2(1585, 180)
+position = Vector2(536.2, 9.8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine" unique_id=1133174265]
 shape = SubResource("RectangleShape2D_pidkh")
 
 [node name="StartLine" type="Area2D" parent="." unique_id=2128795349]
-position = Vector2(820, 180)
+position = Vector2(70.06, 9.8)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartLine" unique_id=1935470056]
 shape = SubResource("RectangleShape2D_xl84n")
+
+[node name="PreStaging" type="Area2D" parent="." unique_id=762183428]
+position = Vector2(69.88, 9.8)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PreStaging" unique_id=1061442947]
+shape = SubResource("RectangleShape2D_fah8g")
 
 [connection signal="body_entered" from="FinishLine" to="." method="OnFinishLineBodyEntered"]
 [connection signal="body_entered" from="StartLine" to="." method="OnStartLineBodyEntered"]
