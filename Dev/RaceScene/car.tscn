@@ -21,8 +21,9 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_2fc2q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1577368540]
-scale = Vector2(4.8, 2)
 texture = SubResource("CanvasTexture_2fc2q")
+region_enabled = true
+region_rect = Rect2(0, 0, 4.8, 2)
 
 [node name="FrontTireBase" type="Area2D" parent="." unique_id=675824422]
 position = Vector2(1.428, 0)

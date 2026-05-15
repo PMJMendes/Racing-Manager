@@ -26,7 +26,7 @@ public partial class Car : RigidBody2D
 
 	public override void _Ready()
 	{
-		GetNode<Sprite2D>("Sprite2D").Modulate = Color;
+		GetNode<Sprite2D>("Sprite2D").SelfModulate = Color;
 	}
 
 	public override void _PhysicsProcess(double delta)
