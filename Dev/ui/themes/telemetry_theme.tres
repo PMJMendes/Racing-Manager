@@ -1,0 +1,12 @@
+[gd_resource type="Theme" format=3 uid="uid://ggdbvluuh7ai"]
+
+[ext_resource type="FontFile" uid="uid://bjvj28r5430tg" path="res://ui/fonts/JetBrainsMono-Regular.ttf" id="1_ngsfd"]
+[ext_resource type="FontFile" uid="uid://c62wqr36ewn6q" path="res://ui/fonts/JetBrainsMono-Bold.ttf" id="2_qmbjh"]
+
+[resource]
+default_font = ExtResource("1_ngsfd")
+default_font_size = 18
+DataLabel/base_type = &"Label"
+DataLabel/font_sizes/font_size = 16
+DataLabel/fonts/font = ExtResource("2_qmbjh")
+IndicatorLabel/base_type = &"Label"

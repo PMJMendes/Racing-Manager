@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://ba0vn8325dyad"]
+
+[ext_resource type="Theme" uid="uid://ggdbvluuh7ai" path="res://ui/themes/telemetry_theme.tres" id="1_eb0lb"]
+[ext_resource type="Script" uid="uid://b53hslwuakykn" path="res://RaceScene/CarTelemetryPanel.cs" id="2_4jhxb"]
+
+[node name="CarTelemetryPanel" type="Control" unique_id=1898597694]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 12.0
+theme = ExtResource("1_eb0lb")
+script = ExtResource("2_4jhxb")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=914657371]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="TeamDriverIndicator" type="Label" parent="GridContainer" unique_id=299023333]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_type_variation = &"IndicatorLabel"
+text = "Team/Driver"
+horizontal_alignment = 2
+
+[node name="TeamDriverData" type="Label" parent="GridContainer" unique_id=1494816070]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DataLabel"
+text = "—"
+
+[node name="TimerIndicator" type="Label" parent="GridContainer" unique_id=1801301228]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_type_variation = &"IndicatorLabel"
+text = "Timer"
+horizontal_alignment = 2
+
+[node name="TimerData" type="Label" parent="GridContainer" unique_id=1493772344]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DataLabel"
+text = "—"
+
+[node name="PositionIndicator" type="Label" parent="GridContainer" unique_id=1100770674]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_type_variation = &"IndicatorLabel"
+text = "Position"
+horizontal_alignment = 2
+
+[node name="PositionData" type="Label" parent="GridContainer" unique_id=1199079483]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DataLabel"
+text = "—"
+
+[node name="SpeedIndicator" type="Label" parent="GridContainer" unique_id=1367043219]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_type_variation = &"IndicatorLabel"
+text = "Speed"
+horizontal_alignment = 2
+
+[node name="SpeedData" type="Label" parent="GridContainer" unique_id=918331724]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DataLabel"
+text = "—"

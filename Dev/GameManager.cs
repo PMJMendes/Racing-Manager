@@ -9,8 +9,7 @@ public partial class GameManager : Node
 
 	private void SetupRace()
 	{
-		Node currentScene = GetTree().CurrentScene;
-		currentScene.QueueFree();
+		GetTree().CurrentScene.QueueFree();
 		
 		var raceScene = GD.Load<PackedScene>("res://RaceScene/race_scene.tscn")
 			.Instantiate<RaceScene>();
