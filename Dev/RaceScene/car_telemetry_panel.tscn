@@ -73,3 +73,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"DataLabel"
 text = "—"
+
+[node name="RearLoadIndicator" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_type_variation = &"IndicatorLabel"
+text = "Rear Load"
+horizontal_alignment = 2
+
+[node name="RearLoadData" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DataLabel"
+text = "—"

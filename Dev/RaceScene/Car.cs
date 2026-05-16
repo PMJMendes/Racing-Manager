@@ -17,6 +17,10 @@ public partial class Car : RigidBody2D
 	[Export] public Color Color = Colors.White;
 	[Export] public float EngineForce = 18700.0f;
 	[Export] public float BrakeForce = 170000.0f;
+	[Export] public float TireGrip = 2.0f;
+	[Export] public float RearLoad = 0.55f;
+	[Export] public float CgHeight = 0.5f;
+	[Export] public float Wheelbase = 2.5f;
 
 	public float BodyLead => _body.RegionRect.Size.X / 2.0f;
 	public float TireLead => _frontTireBase.Position.X + _frontTireShape.Size.X / 2.0f;
@@ -28,11 +32,14 @@ public partial class Car : RigidBody2D
 
 	private CarState _state = CarState.Staging;
 
-	private float _force = 0.0f;
+	private Track _track;
+
+	private float _previousForce = 0.0f;
 	private double _time;
 
 	public void AttachTrack(Track track)
 	{
+		_track = track;
 		track.RaceStarted += OnRaceStarted;
 	}
 
@@ -49,7 +56,6 @@ public partial class Car : RigidBody2D
 	public void OnRaceFinished()
 	{
 		_state = CarState.Braking;
-		_force = -BrakeForce;
 	}
 
 	public override void _Ready()
@@ -74,28 +80,52 @@ public partial class Car : RigidBody2D
 		if (LinearVelocity.X < 0)
 		{
 			LinearVelocity = Vector2.Zero;
-			_force = 0;
 			_state = _state == CarState.Braking ? CarState.Finished : CarState.Staged;
 			return;
 		}
-		
+
+		var effectiveForce = 0.0f;
+		var dynamicRearLoad = RearLoad;
+
+		if (_state == CarState.Racing)
+		{
+			effectiveForce = EngineForce;
+		    var currentAccel = _previousForce / Mass;
+		    var weightTransfer = (CgHeight / Wheelbase) * (currentAccel / PhysicsSettings.s_Gravity);
+    		dynamicRearLoad = Mathf.Clamp(RearLoad + weightTransfer, RearLoad, 1.0f);
+			var tractionLimit = Mass * dynamicRearLoad * PhysicsSettings.s_Gravity * TireGrip * _track.GetGripAt(Position);
+			if (effectiveForce > tractionLimit)
+			{
+				var slip = effectiveForce - tractionLimit;
+				var slipRatio = slip / tractionLimit;
+				effectiveForce = tractionLimit;
+			}
+		}
+
+		if (_state == CarState.Braking)
+		{
+			effectiveForce = -BrakeForce;
+		}
+
 		_time += delta;
-		ApplyCentralForce(Vector2.Right * _force);
+		ApplyCentralForce(Vector2.Right * effectiveForce);
 
 		if (_state == CarState.Racing)
 		{
 			TelemetryUpdated?.Invoke(this, new CarTelemetry(
 				_time,
 				LinearVelocity.X,
-				Position.X
+				Position.X,
+				dynamicRearLoad
 			));
 		}
+
+		_previousForce = effectiveForce;
 	}
 
 	private void OnRaceStarted()
 	{
 		_state = CarState.Racing;
 		_time = 0;
-		_force = EngineForce;
 	}
 }

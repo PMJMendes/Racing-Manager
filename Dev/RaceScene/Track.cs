@@ -12,6 +12,9 @@ public partial class Track : Node2D
 	[Signal]
 	public delegate void CarFinishedRolloutEventHandler(Car car, double officialTime);
 
+	[Export]
+	public float Grip = 1.0f;
+
 	public int CarCount { get; set; }
 	public float StartLineX { get; private set; } = 0f;
 	public float FinishLineX { get; private set; } = 0f;
@@ -20,6 +23,8 @@ public partial class Track : Node2D
 	private bool _isRunning = false;
 	private double _raceElapsed = 0.0;
 	private readonly Dictionary<Car, double> _reactionTimes = [];
+
+	public float GetGripAt(Vector2 _) => Grip;
 
 	public override void _Ready()
 	{
