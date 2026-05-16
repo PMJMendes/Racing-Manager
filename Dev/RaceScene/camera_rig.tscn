@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cyb5kg45lcotk"]
+
+[ext_resource type="Script" uid="uid://clcrao6sw1fi4" path="res://RaceScene/CameraRig.cs" id="1_lghgd"]
+
+[node name="CameraRig" type="Node2D" unique_id=486574892]
+script = ExtResource("1_lghgd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=65705475]
+position_smoothing_enabled = true

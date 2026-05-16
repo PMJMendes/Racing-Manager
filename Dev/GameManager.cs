@@ -22,12 +22,10 @@ public partial class GameManager : Node
 		
 		var car1 = carTemplate.Instantiate<Car>();
 		car1.Color = Colors.Blue;
-		car1.Mass = 1105;
 		raceScene.AttachCar(car1, 1, "PlayerCar");
 		
 		var car2 = carTemplate.Instantiate<Car>();
 		car2.Color = Colors.Red;
-		car2.Mass = 1095;
 		raceScene.AttachCar(car2, 2, "AICar");
 		
 		raceScene.Start();

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lh2tutqgujup" path="res://RaceScene/RaceScene.cs" id="1_3ieap"]
 [ext_resource type="PackedScene" uid="uid://c0dpe8r05hkdv" path="res://RaceScene/track.tscn" id="2_67aso"]
+[ext_resource type="PackedScene" uid="uid://cyb5kg45lcotk" path="res://RaceScene/camera_rig.tscn" id="3_67aso"]
 
 [node name="RaceScene" type="Node" unique_id=348064162]
 script = ExtResource("1_3ieap")
@@ -10,5 +11,7 @@ script = ExtResource("1_3ieap")
 position = Vector2(60, 60)
 
 [node name="Track" parent="World" unique_id=729798231 instance=ExtResource("2_67aso")]
+
+[node name="CameraRig" parent="World" unique_id=486574892 instance=ExtResource("3_67aso")]
 
 [connection signal="CarCrossedFinishLine" from="World/Track" to="." method="OnCarCrossedFinishLine"]

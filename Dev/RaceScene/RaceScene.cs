@@ -10,7 +10,7 @@ public partial class RaceScene : Node
 	{
 		telemetry[car] = [];
 		car.TelemetryUpdated += OnTelemetryUpdated;
-		car.Position = new Vector2(68.55f, lane * 9.4f - 4.3f);
+		car.Position = new Vector2(67.6f, lane * 14.0f - 8.5f);
 		GetNode<Node2D>("World").AddChild(car);
 		car.Name = name;
 		car.AttachTrack(GetNode<Track>("World/Track"));
