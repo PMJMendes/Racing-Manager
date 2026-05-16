@@ -6,6 +6,7 @@
 [node name="CameraRig" type="Node2D" unique_id=486574892]
 script = ExtResource("1_lghgd")
 ZoomCurve = ExtResource("2_syt2d")
+metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=65705475]
 process_callback = 0

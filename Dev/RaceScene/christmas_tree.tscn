@@ -20,6 +20,7 @@
 [node name="ChristmasTree" type="Node2D" unique_id=2006152022]
 scale = Vector2(0.065, 0.065)
 script = ExtResource("1_wqcid")
+metadata/_edit_group_ = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=84345617]
 texture = ExtResource("1_yui78")
