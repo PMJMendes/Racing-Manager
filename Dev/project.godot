@@ -30,8 +30,8 @@ project/assembly_name="RacingManager"
 
 [physics]
 
-common/max_physics_steps_per_frame=16
-common/physics_jitter_fix=0.0
+common/physics_ticks_per_second=100
+common/max_physics_steps_per_frame=10
 3d/physics_engine="Jolt Physics"
 2d/default_gravity=0.0
 2d/default_gravity_vector=Vector2(0, 0)
@@ -40,6 +40,8 @@ common/physics_jitter_fix=0.0
 2d/sleep_threshold_linear=0.0
 2d/sleep_threshold_angular=0.0
 2d/time_before_sleep=0.0
+common/physics_interpolation=true
+common/enable_object_picking=false
 
 [rendering]
 

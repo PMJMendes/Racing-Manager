@@ -3,14 +3,32 @@ using Godot;
 
 public partial class Car : RigidBody2D
 {
+	private enum CarState
+	{
+		Staging,
+		Staged,
+		Racing,
+		Braking,
+		Finished
+	}
+
 	public event EventHandler<CarTelemetry> TelemetryUpdated;
 
 	[Export] public Color Color = Colors.White;
-	[Export] public float EngineForce = 18700f;
+	[Export] public float EngineForce = 18700.0f;
+	[Export] public float BrakeForce = 170000.0f;
 
-	private bool _racing = false;
-	private bool _braking = false;
+	public float BodyLead => _body.RegionRect.Size.X / 2.0f;
+	public float TireLead => _frontTireBase.Position.X + _frontTireShape.Size.X / 2.0f;
+	public float TireTrail => _frontTireBase.Position.X - _frontTireShape.Size.X / 2.0f;
 
+	private Sprite2D _body;
+	private Area2D _frontTireBase;
+	private RectangleShape2D _frontTireShape;
+
+	private CarState _state = CarState.Staging;
+
+	private float _force = 0.0f;
 	private double _time;
 
 	public void AttachTrack(Track track)
@@ -18,45 +36,66 @@ public partial class Car : RigidBody2D
 		track.RaceStarted += OnRaceStarted;
 	}
 
+	public void OnPreStaged()
+	{
+		LinearVelocity = new Vector2(0.12f, 0.0f);
+	}
+
+	public void OnStaged()
+	{
+		LinearVelocity = new Vector2(0.0f, 0.0f);
+	}
+
 	public void OnRaceFinished()
 	{
-		_braking = true;
-		EngineForce = -170000f;
+		_state = CarState.Braking;
+		_force = -BrakeForce;
 	}
 
 	public override void _Ready()
 	{
-		GetNode<Sprite2D>("Sprite2D").SelfModulate = Color;
+		_body = GetNode<Sprite2D>("Body");
+		_frontTireBase = GetNode<Area2D>("FrontTireBase");
+		_frontTireShape = GetNode<CollisionShape2D>("FrontTireBase/CollisionShape2D")
+			.Shape as RectangleShape2D;
+
+		_body.SelfModulate = Color;
+
+		LinearVelocity = new Vector2(2.0f, 0.0f);
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		if (!_racing)
+		if (_state == CarState.Finished)
 		{
 			return;
 		}
 		
-		if (_braking && LinearVelocity.X < 0)
+		if (LinearVelocity.X < 0)
 		{
-			EngineForce = 0;
 			LinearVelocity = Vector2.Zero;
-			_racing = false;
+			_force = 0;
+			_state = _state == CarState.Braking ? CarState.Finished : CarState.Staged;
 			return;
 		}
 		
 		_time += delta;
-		ApplyCentralForce(Vector2.Right * EngineForce);
-		
-		TelemetryUpdated?.Invoke(this, new CarTelemetry(
-			_time,
-			LinearVelocity.X,
-			Position.X
-		));
+		ApplyCentralForce(Vector2.Right * _force);
+
+		if (_state == CarState.Racing)
+		{
+			TelemetryUpdated?.Invoke(this, new CarTelemetry(
+				_time,
+				LinearVelocity.X,
+				Position.X
+			));
+		}
 	}
 
 	private void OnRaceStarted()
 	{
-		_racing = true;
+		_state = CarState.Racing;
 		_time = 0;
+		_force = EngineForce;
 	}
 }

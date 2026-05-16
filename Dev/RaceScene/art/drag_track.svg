@@ -12,7 +12,7 @@
   <rect x="0" y="96" width="8" height="4" fill="#2d6b2d"/>
 
   <!-- Asphalt background for entire track (y=1 through y=23) -->
-  <rect x="0" y="1" width="8" height="92" fill="url(#asphalt)"/>
+  <rect x="0" y="4" width="8" height="92" fill="url(#asphalt)"/>
 
   <!-- White lane limiters -->
   <rect x="0" y="4" width="8" height="2" fill="white" shape-rendering="crispEdges"/>
@@ -25,9 +25,9 @@
   <rect x="0" y="58" width="8" height="2" fill="#ffcc00" shape-rendering="crispEdges"/>
 
   <!-- Lane center dotted lines (white, dashed) -->
-  <line x1="0" y1="22" x2="8" y2="22" stroke="white" stroke-width="2" stroke-dasharray="2,2" shape-rendering="crispEdges"/>
-  <line x1="0" y1="78" x2="8" y2="78" stroke="white" stroke-width="2" stroke-dasharray="2,2" shape-rendering="crispEdges"/>
+  <line x1="0" y1="22" x2="8" y2="22" stroke="white" stroke-width="1" stroke-dasharray="2,2" shape-rendering="crispEdges"/>
+  <line x1="0" y1="78" x2="8" y2="78" stroke="white" stroke-width="1" stroke-dasharray="2,2" shape-rendering="crispEdges"/>
 
   <!-- Lane separator center dashed line (yellow) -->
-  <line x1="1" y1="50" x2="7" y2="50" stroke="#ffcc00" stroke-width="2" stroke-dasharray="4,4" shape-rendering="crispEdges"/>
+  <line x1="1" y1="50" x2="7" y2="50" stroke="#ffcc00" stroke-width="1" stroke-dasharray="4,4" shape-rendering="crispEdges"/>
 </svg>

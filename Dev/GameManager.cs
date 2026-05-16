@@ -21,12 +21,14 @@ public partial class GameManager : Node
 		var carTemplate = GD.Load<PackedScene>("res://RaceScene/car.tscn");
 		
 		var car1 = carTemplate.Instantiate<Car>();
+		car1.Name = "PlayerCar";
 		car1.Color = Colors.Blue;
-		raceScene.AttachCar(car1, 1, "PlayerCar");
+		raceScene.AttachCar(car1, 1);
 		
 		var car2 = carTemplate.Instantiate<Car>();
+		car2.Name = "AICar";
 		car2.Color = Colors.Red;
-		raceScene.AttachCar(car2, 2, "AICar");
+		raceScene.AttachCar(car2, 2);
 		
 		raceScene.Start();
 	}

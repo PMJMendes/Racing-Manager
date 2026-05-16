@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://c48kiw2ausyy0"]
+
+[ext_resource type="Script" uid="uid://b45tpqxrviw0w" path="res://RaceScene/ChristmasTree.cs" id="1_wqcid"]
+[ext_resource type="Texture2D" uid="uid://p2ufjqkuv5hu" path="res://RaceScene/art/christmas-tree.svg" id="1_yui78"]
+[ext_resource type="Texture2D" uid="uid://buby6t06y5brs" path="res://RaceScene/art/prestage-left.svg" id="2_wqcid"]
+[ext_resource type="Texture2D" uid="uid://bdfnkms64pg45" path="res://RaceScene/art/stage-left.svg" id="3_mykcb"]
+[ext_resource type="Texture2D" uid="uid://df82js0550wbi" path="res://RaceScene/art/amber1-left.svg" id="4_lhc3y"]
+[ext_resource type="Texture2D" uid="uid://dmpawajr08856" path="res://RaceScene/art/amber2-left.svg" id="5_tnfq1"]
+[ext_resource type="Texture2D" uid="uid://coefol3ya210f" path="res://RaceScene/art/amber3-left.svg" id="6_v1ldc"]
+[ext_resource type="Texture2D" uid="uid://oc3b2cp64ceb" path="res://RaceScene/art/green-left.svg" id="7_cjb17"]
+[ext_resource type="Texture2D" uid="uid://dqmhm2fnkvjao" path="res://RaceScene/art/red-left.svg" id="8_8rq1w"]
+[ext_resource type="Texture2D" uid="uid://dy36whpf5akvk" path="res://RaceScene/art/prestage-right.svg" id="9_mh5jh"]
+[ext_resource type="Texture2D" uid="uid://bygdf51sy2dtt" path="res://RaceScene/art/stage-right.svg" id="10_fbdro"]
+[ext_resource type="Texture2D" uid="uid://jbs2gjcptelb" path="res://RaceScene/art/amber1-right.svg" id="11_x6n8h"]
+[ext_resource type="Texture2D" uid="uid://2xkp7w08ejsa" path="res://RaceScene/art/amber2-right.svg" id="12_edkr4"]
+[ext_resource type="Texture2D" uid="uid://8ray7yd11n8j" path="res://RaceScene/art/amber3-right.svg" id="13_0p5h6"]
+[ext_resource type="Texture2D" uid="uid://f6av2ctylaeb" path="res://RaceScene/art/green-right.svg" id="14_1syf4"]
+[ext_resource type="Texture2D" uid="uid://b3xi7cw3t0sx7" path="res://RaceScene/art/red-right.svg" id="15_f1e4h"]
+
+[node name="ChristmasTree" type="Node2D" unique_id=2006152022]
+scale = Vector2(0.065, 0.065)
+script = ExtResource("1_wqcid")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=84345617]
+texture = ExtResource("1_yui78")
+
+[node name="LeftTree" type="Node2D" parent="." unique_id=1184428599]
+
+[node name="PreStage" type="Sprite2D" parent="LeftTree" unique_id=242629004]
+visible = false
+texture = ExtResource("2_wqcid")
+
+[node name="Stage" type="Sprite2D" parent="LeftTree" unique_id=334373851]
+visible = false
+texture = ExtResource("3_mykcb")
+
+[node name="Amber1" type="Sprite2D" parent="LeftTree" unique_id=1060933467]
+visible = false
+texture = ExtResource("4_lhc3y")
+
+[node name="Amber2" type="Sprite2D" parent="LeftTree" unique_id=311974340]
+visible = false
+texture = ExtResource("5_tnfq1")
+
+[node name="Amber3" type="Sprite2D" parent="LeftTree" unique_id=1348088108]
+visible = false
+texture = ExtResource("6_v1ldc")
+
+[node name="Green" type="Sprite2D" parent="LeftTree" unique_id=624595562]
+visible = false
+texture = ExtResource("7_cjb17")
+
+[node name="Red" type="Sprite2D" parent="LeftTree" unique_id=806093568]
+visible = false
+texture = ExtResource("8_8rq1w")
+
+[node name="RightTree" type="Node2D" parent="." unique_id=1070648002]
+
+[node name="PreStage" type="Sprite2D" parent="RightTree" unique_id=577621362]
+visible = false
+texture = ExtResource("9_mh5jh")
+
+[node name="Stage" type="Sprite2D" parent="RightTree" unique_id=2114524256]
+visible = false
+texture = ExtResource("10_fbdro")
+
+[node name="Amber1" type="Sprite2D" parent="RightTree" unique_id=116129182]
+visible = false
+texture = ExtResource("11_x6n8h")
+
+[node name="Amber2" type="Sprite2D" parent="RightTree" unique_id=1357469285]
+visible = false
+texture = ExtResource("12_edkr4")
+
+[node name="Amber3" type="Sprite2D" parent="RightTree" unique_id=677716060]
+visible = false
+texture = ExtResource("13_0p5h6")
+
+[node name="Green" type="Sprite2D" parent="RightTree" unique_id=607238641]
+visible = false
+texture = ExtResource("14_1syf4")
+
+[node name="Red" type="Sprite2D" parent="RightTree" unique_id=72116584]
+visible = false
+texture = ExtResource("15_f1e4h")

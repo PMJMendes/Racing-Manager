@@ -20,7 +20,7 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1268020363]
 shape = SubResource("RectangleShape2D_2fc2q")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1577368540]
+[node name="Body" type="Sprite2D" parent="." unique_id=1577368540]
 texture = SubResource("CanvasTexture_2fc2q")
 region_enabled = true
 region_rect = Rect2(0, 0, 4.8, 2)

@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://c0dpe8r05hkdv"]
 
 [ext_resource type="Script" uid="uid://db58o1bnf7oyi" path="res://RaceScene/Track.cs" id="1_qsl0q"]
-[ext_resource type="Texture2D" uid="uid://cv57jcfxwyj14" path="res://RaceScene/art/drag_track.svg" id="2_drag_track"]
+[ext_resource type="Texture2D" uid="uid://dmj6lcjf8mc5m" path="res://RaceScene/art/drag_track.png" id="2_fah8g"]
 [ext_resource type="Texture2D" uid="uid://cdbkl2lkh8i5d" path="res://RaceScene/art/checkered.png" id="3_fah8g"]
+[ext_resource type="PackedScene" uid="uid://c48kiw2ausyy0" path="res://RaceScene/christmas_tree.tscn" id="4_x1lfd"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xl84n"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_x1lfd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pidkh"]
-size = Vector2(130, 25)
+size = Vector2(128, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xl84n"]
 size = Vector2(0.01, 25)
@@ -25,7 +26,7 @@ metadata/_edit_group_ = true
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_drag_track")
+texture = ExtResource("2_fah8g")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 2400, 100)
@@ -38,7 +39,7 @@ region_rect = Rect2(0, 0, 0.19, 23)
 
 [node name="FinishLinePaint" type="Sprite2D" parent="." unique_id=1330408611]
 self_modulate = Color(0.8235294, 0.8235294, 0.8235294, 1)
-position = Vector2(471.25, 12.5)
+position = Vector2(473.25, 12.5)
 texture = SubResource("CanvasTexture_x1lfd")
 region_enabled = true
 region_rect = Rect2(0, 0, 2.5, 23)
@@ -52,7 +53,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 8, 90)
 
 [node name="FinishLine" type="Area2D" parent="." unique_id=510812460]
-position = Vector2(535, 12.5)
+position = Vector2(536, 12.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine" unique_id=1133174265]
 shape = SubResource("RectangleShape2D_pidkh")
@@ -73,5 +74,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PreStaging" unique_id=1061442947]
 shape = SubResource("RectangleShape2D_fah8g")
 
+[node name="ChristmasTree" parent="." unique_id=2006152022 instance=ExtResource("4_x1lfd")]
+position = Vector2(-7.5, 12.5)
+
 [connection signal="body_entered" from="FinishLine" to="." method="OnFinishLineBodyEntered"]
-[connection signal="body_entered" from="StartLine" to="." method="OnStartLineBodyEntered"]
+[connection signal="area_entered" from="StartLine" to="." method="OnStartLineAreaEntered"]
+[connection signal="area_exited" from="StartLine" to="." method="OnStartLineAreaExited"]
+[connection signal="area_entered" from="PreStaging" to="." method="OnPreStagingAreaEntered"]

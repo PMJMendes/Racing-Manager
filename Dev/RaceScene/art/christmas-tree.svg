@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 300" width="150" height="300">
+ <g transform="translate(0 -822.52)">
+  <g stroke="#000" stroke-linecap="round" stroke-width="2">
+   <circle cx="30" cy="847.52" r="20" fill="#04f"/>
+   <circle cx="30" cy="897.52" r="20" fill="#fc0"/>
+   <circle cx="30" cy="947.52" r="20" fill="#fc0"/>
+   <circle cx="30" cy="997.52" r="20" fill="#fc0"/>
+   <circle cx="30" cy="1047.5" r="20" fill="#0c0"/>
+   <circle cx="30" cy="1097.5" r="20" fill="#f00"/>
+   <circle cx="120" cy="847.52" r="20" fill="#04f"/>
+   <circle cx="120" cy="897.52" r="20" fill="#fc0"/>
+   <circle cx="120" cy="947.52" r="20" fill="#fc0"/>
+   <circle cx="120" cy="997.52" r="20" fill="#fc0"/>
+   <circle cx="120" cy="1047.5" r="20" fill="#0c0"/>
+   <circle cx="120" cy="1097.5" r="20" fill="#f00"/>
+  </g>
+  <g fill="#666" fill-opacity=".66667">
+   <circle cx="30" cy="847.52" r="20"/>
+   <circle cx="30" cy="897.52" r="20"/>
+   <circle cx="30" cy="947.52" r="20"/>
+   <circle cx="30" cy="997.52" r="20"/>
+   <circle cx="30" cy="1047.5" r="20"/>
+   <circle cx="30" cy="1097.5" r="20"/>
+   <circle cx="120" cy="847.52" r="20"/>
+   <circle cx="120" cy="897.52" r="20"/>
+   <circle cx="120" cy="947.52" r="20"/>
+   <circle cx="120" cy="997.52" r="20"/>
+   <circle cx="120" cy="1047.5" r="20"/>
+   <circle cx="120" cy="1097.5" r="20"/>
+  </g>
+  <path d="m75 1117.5v-290" fill="none" stroke="#000" stroke-width="50"/>
+  <circle cx="30" cy="847.52" r="12.5"/>
+  <circle cx="120" cy="847.52" r="12.5"/>
+ </g>
+</svg>
