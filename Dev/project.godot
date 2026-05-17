@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="RacingManager"
-run/main_scene="uid://crkdqf1l2v8fq"
+run/main_scene="uid://dp841rvl40xqh"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+RaceWeekendManager="*uid://xhsef0yxp434"
+SceneChanger="*uid://b3iwuulfdoxub"
 
 [display]
 

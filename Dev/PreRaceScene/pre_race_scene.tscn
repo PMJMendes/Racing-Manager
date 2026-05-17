@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://be0653fndvdpa"]
+
+[ext_resource type="Script" uid="uid://w5qkupf4kljh" path="res://PreRaceScene/PreRaceScene.cs" id="1_8vgci"]
+
+[node name="PreRaceScene" type="Node" unique_id=1242703405]
+script = ExtResource("1_8vgci")
