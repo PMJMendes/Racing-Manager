@@ -10,11 +10,11 @@ public partial class CarTelemetryPanel : Control
 
 	public override void _Ready()
 	{
-		_teamDriverData = GetNode<Label>("GridContainer/TeamDriverData");
-		_timerData = GetNode<Label>("GridContainer/TimerData");
-		_positionData = GetNode<Label>("GridContainer/PositionData");
-		_speedData = GetNode<Label>("GridContainer/SpeedData");
-		_rearLoadData = GetNode<Label>("GridContainer/RearLoadData");
+		_teamDriverData = GetNode<Label>("TeamDriverData");
+		_timerData = GetNode<Label>("TimerData");
+		_positionData = GetNode<Label>("PositionData");
+		_speedData = GetNode<Label>("SpeedData");
+		_rearLoadData = GetNode<Label>("RearLoadData");
 	}
 
 	public void SetCarName(string name)
