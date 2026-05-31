@@ -35,3 +35,7 @@ Dev/*.translation
 Dev/.mono/
 Dev/data_*/
 Dev/mono_crash.*.json
+
+# Vensim stuff
+*.2mdl
+*.vdfx
